@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <title>
+            palindrome
+        </title>
+        <body>
+            <input id="input" placeholder="type here">
+            <button id="button" onclick="show()">Show</button><br>
+            <label  style="font-size: 20p;font-weight: bold;" id="result"></label>
+
+            <label style="font-size: 20p;font-weight: bold;" id="alpha"></label>
+
+            <label style="font-size: 20p;font-weight: bold;" id="special"></label>
+
+            <label style="font-size: 20p;font-weight: bold;" id="number"></label>
+        </body>
+        <script>
+            function show(){
+
+            var input=document.getElementById("input").value;
+            var input_lower=input.toLowerCase();
+
+            console.log(input_lower);
+
+            length=input.length;
+            console.log(length);
+            var reverse=input_lower.split("").reverse().join("")
+            console.log(reverse);
+
+            if(input_lower==reverse){
+                document.getElementById("result").innerHTML=input+" is a palindrome<br>";
+            }
+            else{
+                document.getElementById("result").innerHTML=input+" is not a palindrome<br>";
+            }
+            var count_alphabet=0;
+            var count_special=0; 
+            var count_number=0;
+ for(var i=0;i<length;i++){
+
+var specialChars = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/gi; 
+
+  if(input.charAt(i).match("^[a-zA-Z]+$")){
+    
+    count_alphabet++;
+  }
+   if(input.charAt(i).match(specialChars)){
+      
+      count_special++;
+  }
+   if(input.charAt(i).match("^[0-9]+$")){
+        
+        count_number++;
+  }
+  document.getElementById("alpha").innerHTML= "aplbhabets="+count_alphabet+"<br>";
+  document.getElementById("number").innerHTML="numbers="+count_number+"<br>";
+  document.getElementById("special").innerHTML="special characters="+count_special+"<br>";
+}
+ }
+         
+   </script>
+    </head>
+</html>
